@@ -2,12 +2,59 @@ import java.util.Scanner;
 
 public class BankAccountMenu {
     public static void main(String[] args) {
-        // TODO: Implement the bank account menu
-        // 1. Create a double variable for balance
-        // 2. Create a while loop for the menu
-        // 3. Display the menu options
-        // 4. Use Scanner to read user input
-        // 5. Use switch statement to handle menu choices
-        // 6. Implement add money, withdraw money, check balance, and exit functionality
+        boolean running=true;
+        Scanner sc= new Scanner(System.in);
+        while (running==true)
+        {
+        	System.out.println("--- Bank Account Menu ---\n1. Add Money");
+        	System.out.println("2. Withdraw Money\n3. Check balance\n4. Exit");
+        	System.out.println("Enter your choice:  ");
+        	int choice = sc.nextInt();
+        	double balance = 0;
+        	switch(choice)
+        	{
+        		case 1:
+        		{
+        			System.out.println("How much would you like to add?  ");
+        			double add = sc.nextDouble();
+        			if (add>=0)
+        			{
+        				balance += add;
+        				System.out.println("Your new balance is " + balance);
+        			}
+        			else
+        			{
+        				System.out.println("ERROR\nBalance: " + balance);
+        			}
+        			break;
+        		}
+        		case 2:
+        		{
+        			System.out.println("How much would you like to withdraw?  ");
+        			double withdraw = sc.nextDouble();
+        			if (withdraw>=0 && withdraw<=balance)
+        			{
+        				balance -= withdraw;
+        				System.out.println("Your new balance is " + balance);
+        			}
+        			else
+        			{
+        				System.out.println("ERROR\nBalance: " + balance);
+        			}
+        			break;
+        		}
+        		case 3:
+        		{
+        			System.out.println("Balance: " + balance);
+        			break;
+        		}
+        		case 4:
+        		{
+        			System.out.println("Goodbye");
+        			running = false;
+        			break;
+        		}
+        	}
+        }
     }
 }
