@@ -20,12 +20,13 @@ public class BankAccountMenu {
         			if (add>=0)
         			{
         				balance += add;
-        				System.out.println("Your new balance is " + balance);
+        				System.out.println("Your new balance is $" + balance);
         			}
         			else
         			{
-        				System.out.println("ERROR\nBalance: " + balance);
+        				System.out.println("ERROR\nBalance: $" + balance);
         			}
+        			System.out.println();
         			break;
         		}
         		case 2:
@@ -35,17 +36,19 @@ public class BankAccountMenu {
         			if (withdraw>=0 && withdraw<=balance)
         			{
         				balance -= withdraw;
-        				System.out.println("Your new balance is " + balance);
+        				System.out.println("Your new balance is $" + balance);
         			}
         			else
         			{
-        				System.out.println("ERROR\nBalance: " + balance);
+        				System.out.println("ERROR\nBalance: $" + balance);
         			}
+        			System.out.println();
         			break;
         		}
         		case 3:
         		{
-        			System.out.println("Balance: " + balance);
+        			System.out.println("Balance: $" + balance);
+        			System.out.println();
         			break;
         		}
         		case 4:
