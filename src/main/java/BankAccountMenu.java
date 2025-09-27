@@ -4,56 +4,67 @@ public class BankAccountMenu {
     public static void main(String[] args) {
         boolean running=true;
         Scanner sc= new Scanner(System.in);
+        double balance = 0;
         while (running==true)
         {
-        	System.out.println("--- Bank Account Menu ---\n1. Add Money");
-        	System.out.println("2. Withdraw Money\n3. Check balance\n4. Exit");
-        	System.out.println("Enter your choice:  ");
+        	System.out.println("--- Bank Account Menu ---");
+        	System.out.println("1. Add Money");
+        	System.out.println("2. Withdraw Money");
+        	System.out.println("3. Check balance");
+        	System.out.println("4. Exit");
+        	System.out.print("Enter your choice: ");
         	int choice = sc.nextInt();
-        	double balance = 0;
+        	
         	switch(choice)
         	{
         		case 1:
         		{
-        			System.out.println("How much would you like to add?  ");
+        			System.out.print("Enter amount to add: ");
         			double add = sc.nextDouble();
-        			if (add>=0)
+        			if (add > 0)
         			{
-        				balance += add;
-        				System.out.println("Your new balance is $%.2f" + balance);
+        			    balance += add;
+        				System.out.printf("Added $%.2f", add);
+        				System.out.println();
+        				System.out.printf("New balance: $%.2f", balance);
         			}
         			else
         			{
-        				System.out.println("ERROR\nBalance: $%.2f" + balance);
+        				System.out.println("Cannot add negative number");
         			}
+        			System.out.println();
         			System.out.println();
         			break;
         		}
         		case 2:
         		{
-        			System.out.println("How much would you like to withdraw?  ");
+        			System.out.print("Enter amount to withdraw: ");
         			double withdraw = sc.nextDouble();
         			if (withdraw>=0 && withdraw<=balance)
         			{
         				balance -= withdraw;
-        				System.out.println("Your new balance is $%.2f" + balance);
+        				System.out.printf("Withdrew $%.2f", balance);
+        				System.out.println();
+        				System.out.printf("New balance: $%.2f", balance);
         			}
         			else
         			{
-        				System.out.println("ERROR\nBalance: $%.2f" + balance);
+        				System.out.print("Insufficient funds");
         			}
+        			System.out.println();
         			System.out.println();
         			break;
         		}
         		case 3:
         		{
-        			System.out.println("Balance: $%.2f" + balance);
+        			System.out.printf("Balance: $%.2f", balance);
+        			System.out.println();
         			System.out.println();
         			break;
         		}
         		case 4:
         		{
-        			System.out.println("Goodbye");
+        			System.out.println("Goodbye!");
         			running = false;
         			break;
         		}
